@@ -23,7 +23,9 @@ public class Main {
                 String[] info = line.split(" ");
                 try {
                     users.add(new User(info[0], Integer.parseInt(info[1])));
-                } catch (NumberFormatException ignored) {}
+                } catch (NumberFormatException e) {
+                    System.out.println("Error parsing age for user: " + info[0] + " in line: " + line);
+                }
             }
         } catch (IOException e) {
             System.out.println("Error while opening file: " + file.getName());
@@ -45,3 +47,4 @@ public class Main {
         System.out.println("Users were successfully added to file: " + json.getName());
     }
 }
+
